@@ -1,0 +1,33 @@
+version: "3"
+services:
+  api1:
+    build: ./../todo-api
+    environment:
+      DATABASE_SERVER: "servertodos.database.windows.net"
+      DATABASE_AUTHENTICATION_TYPE: "default"
+      DATABASE_USERNAME: "adminservertodos"
+      DATABASE_PASSWORD: "Channel321*"
+      DATABASE_NAME: "TodosAppDb"
+      API_PORT: 9000
+      SERVER_TAG: "SERVER API 1"
+    ports:
+      - "9001:9000"
+  api2:
+    build: ./../todo-api
+    environment:
+      DATABASE_SERVER: "servertodos.database.windows.net"
+      DATABASE_AUTHENTICATION_TYPE: "default"
+      DATABASE_USERNAME: "adminservertodos"
+      DATABASE_PASSWORD: "Channel321*"
+      DATABASE_NAME: "TodosAppDb"
+      API_PORT: 9000
+      SERVER_TAG: "SERVER API 2"
+    ports:
+      - "9002:9000"
+  loadbalancer:
+    build: ./
+    ports:
+      - "9000:80"
+    depends_on:
+      - api1
+      - api2

@@ -1,0 +1,23 @@
+{
+  "name": "docker-load-balancer",
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+    "todo-api"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "start:api": "npm run start --workspace=todo-api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soymichelt/docker-load-balancer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soymichelt/docker-load-balancer/issues"
+  },
+  "homepage": "https://github.com/soymichelt/docker-load-balancer#readme"
+}
